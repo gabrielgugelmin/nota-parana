@@ -1,0 +1,141 @@
+.Header{
+  background-color: $viking;
+  height: 80px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  @include MQ(M){
+    height: 100px;
+  }
+
+  &__logo{
+    left: 15px;
+    top: 30px;
+    position: absolute;
+    width: 80px;
+
+    @include MQ(M){
+      @include center;
+    }
+  }
+}
+
+.Menu{
+  @include transform(scale(.7));
+  @include transition(all .25s ease);
+  background: rgba($viking, .96);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  width: 100%;
+
+  &.is-open{
+    @include transform(scale(1));
+    opacity: 1;
+    visibility: visible;
+  }
+
+  ul{
+    @include center;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 90%;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+  }
+
+  li{
+    &:last-child{
+      a{
+        border: 0;
+      }
+    }
+  }
+
+  a{
+    border-bottom: 1px solid $tiber;
+    color: white;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+}
+
+.MenuTrigger{
+	@include transition(all, .3s, linear);
+
+  display: inline-block;
+  height: 22px;
+  position: absolute;
+  right: 25px;
+  text-decoration: none;
+  top: 30px;
+  width: 56px;
+  z-index: 3;
+
+	span{
+		@include center;
+		@include transition(all, .2s, linear);
+
+		background-color: white;
+		display: block;
+    border-radius: 5px;
+		height: 4px;
+		position: relative;
+		width: 28px;
+
+		&::after, &::before{
+			@include transition(all, .3s, linear);
+			@include transform(rotate(0));
+
+			background-color: white;
+			content: "";
+			display: block;
+      border-radius: 5px;
+			height: 100%;
+			position: absolute;
+			width: 100%;
+		}
+
+		&::after{
+			bottom: -8px;
+		}
+
+		&::before{
+			top: -8px;			
+    }
+	}
+
+	&.is-open{    
+		span{
+			background-color: transparent !important;
+
+			&::before, &::after{
+				background-color: white;
+			}
+
+			&:before{
+				@include transform(rotate(45deg));
+
+				top: 0  !important;
+			}
+
+			&:after{
+				@include transform(rotate(-45deg));
+
+				bottom: 0 !important;
+			}
+		}
+	}
+}

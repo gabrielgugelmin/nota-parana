@@ -1,0 +1,282 @@
+@import 'mixins';
+@import 'colors';
+@import 'fonts';
+@import 'header';
+
+img{
+  max-width: 100%;
+}
+
+html, body {
+  height: 100%;
+  margin: 0; padding: 0;  /* to avoid scrollbars */
+}
+
+body{
+  font-family: $m;
+}
+
+.container{
+	margin: 0 auto;
+	padding: 0 15px;
+  position: relative;
+	width: 100%;
+
+	@include MQ(S){
+		max-width: 750px;
+	}
+
+	@include MQ(M){
+		max-width: 970px;
+	}
+
+	@include MQ(L){
+		max-width: 1280px;
+	}
+}
+
+.PageWrapper {
+  display: flex;  /* use the flex model */
+  min-height: 100%;
+  flex-direction: column;  /* learn more: http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
+  overflow: hidden;
+}
+
+.PageContent{
+	flex: 1;
+  padding-top: 80px;
+
+  @include MQ(M){
+    padding-top: 100px;
+  }
+}
+
+body{
+  &.overflowHidden{
+    overflow: hidden;
+  }
+}
+
+.Button{
+  border-radius: 30px;
+  border: 0;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 35px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &::after{
+    @include center(x);
+    border-radius: 30px;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 30px;
+    position: absolute;
+    width: 80%;
+  }
+
+  @include MQ(M){
+    font-size: 16px;
+  }
+
+  &--pink{
+    @extend .Button;
+    background-color: $razzmatazz;
+    
+    &::after{
+      box-shadow: 0 5px 30px 0 rgba($razzmatazz, .5);
+    }
+  }
+
+  &--blue{
+    @extend .Button;
+    background-color: $tiber;
+
+    &::after{
+      box-shadow: 0 5px 30px 0 rgba($tiber, .5);
+    }
+  }
+}
+
+.Banner{
+  height: 380px;
+  position: relative;
+  text-align: center;
+
+  @include MQ(M){
+    height: 550px;
+  }
+
+  &__item{    
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    position: relative;
+
+    .container{
+      height: 100%;
+    }
+
+    &--left,
+    &--right{
+      @extend .Banner__item;
+    }
+
+    &--right{
+      background-position: left top;
+    }
+
+    &--left{
+      background-position: right top;
+    }
+  }
+
+  &__content{
+    @include center;
+    position: absolute;
+    width: 90%;
+  }
+
+  h1{
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.2;
+    position: relative;
+    text-shadow: 1px 0 5px rgba(black, .4);
+
+    @include MQ(M){
+      font-size: 36px;
+      text-shadow: none;
+    }
+
+    @include MQ(L){
+      font-size: 48px;
+    }
+  }
+}
+
+h2{
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  font-size: 18px;
+  color: $tiber;
+  line-height: 1.2;
+}
+
+p{
+  color: $tiber;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 27px;
+
+  a{
+    color: $razzmatazz;
+    font-weight: bold;
+    margin: 0 3px;
+    position: relative;
+    text-decoration: none;
+
+    &::before,
+    &::after{
+      @include transition(all .25s ease);
+
+      background-color: $razzmatazz;
+      content: "";
+      display: block;
+      bottom: -2px;
+      height: 1px;
+      left: 1px;
+      position: absolute;
+      width: calc(100% - 2px);
+    }
+
+    &::after{
+      opacity: 0;
+    }
+
+    &:hover{
+      &::after{
+        @include transform(translateY(-21px));
+        opacity: 1;
+      }
+
+      &::after,
+      &::before{
+        left: -1px;
+        width: calc(100% + 2px);
+      }
+    }
+  }
+}
+
+.Como{
+  @include clearfix;
+  background-color: $viking;
+  padding: 35px 0 55px;
+}
+
+.Box{
+  background: white;
+  border-radius: 10px;
+  margin: 0 0 30px;
+  padding: 20px 20px 40px;
+  position: relative;
+
+  @include MQ(M){
+    display: inline-block;
+    float: left;
+    padding: 55px;
+    width: calc(50% - 15px);
+
+    &:last-child{
+      margin-left: 30px;
+    }
+  }
+
+  h3{
+    color: $tiber;
+    font-size: 18px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    padding-right: 35px;
+    font-weight: 500;
+  }
+
+  p{
+      margin-bottom: 60px;    
+  }
+
+  &__tag{
+    background: url(../img/tag.png) no-repeat 0 0;
+    background-size: contain;
+    height: 65px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    width: 40px;
+
+    img{
+      @include center(x);
+      top: 16px;
+      position: absolute;
+      height: 25px;
+    }
+
+    @include MQ(M){
+      right: 30px;
+    }
+  }
+
+  .Button{
+    width: 100%;
+  }
+}
