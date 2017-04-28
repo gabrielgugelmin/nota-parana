@@ -1,0 +1,47 @@
+.Form{
+  &__group{
+    margin-bottom: 10px;
+    label{
+      color: black;
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    input{
+      @include transition(all .3s ease);
+
+      border-radius: 30px;
+      border: 1px solid #969696;
+      color: #afafaf;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.2;
+      padding: 10px 18px;
+      width: 100%;
+
+      &:focus{
+        outline: none;
+        border-color: darken(#969696, 10%);
+        box-shadow: 1px 1px 6px -1px rgba(black, .25);
+      }
+    }
+  }
+
+  .Button{
+    margin: 15px 0;
+    width: 100%;
+
+    @include MQ(M){
+      float: left;
+      width: calc(50% - 15px);
+      margin-right: 30px;
+      
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}

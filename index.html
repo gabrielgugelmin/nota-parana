@@ -22,9 +22,13 @@
 <body> 
 	<div class="PageWrapper">
 		<header class="Header">
-			<div class="container">
+			<div class="u-container">
 				<a href="#/" class="Header__logo">
-					<img src="assets/img/logo-nota.svg" alt="APACN">
+					<img src="assets/img/logo-nota.svg" alt="Nota Esperança">
+				</a>
+
+				<a href="#/" class="Header__apacn">
+						<img src="assets/img/logo-apacn.svg" alt="APACN">
 				</a>
 
 				<a href="#/" class="MenuTrigger">
@@ -33,12 +37,12 @@
 
 				<nav class="Menu">
 					<ul class="Menu__nav">
-						<li><a href="#/" class="js-scroll">HOME</a></li>
-						<li><a href="#/" class="js-scroll">COMO FUNCIONA</a></li>
-						<li><a href="#/" class="js-scroll">ENVIAR NOTA</a></li>
-						<li><a href="#/" class="js-scroll">RANKING</a></li>
-            <li><a href="#/" class="js-scroll">DOWNLOADS</a></li>
-            <li><a href="#/" class="js-scroll">CONTATO</a></li>
+						<li><a href="#Home" class="js-scroll">HOME</a></li>
+						<li><a href="#Como" class="js-scroll">COMO FUNCIONA</a></li>
+						<li><a href="#Como" class="js-scroll js-enviarNota">ENVIAR NOTA</a></li>
+						<li><a href="#Ranking" class="js-scroll">RANKING</a></li>
+            <li><a href="#Downloads" class="js-scroll">DOWNLOADS</a></li>
+            <li><a href="#Contato" class="js-scroll">CONTATO</a></li>
 					</ul>
 				</nav> <!-- Menu -->
 
@@ -47,21 +51,21 @@
 
 		<div class="PageContent">
 
-			<section class="Banner js-bannerSlider">
+			<section class="Banner js-bannerSlider" id="Home">
 				<div class="Banner__item--left" style="background-image: url(assets/img/banner1.jpg);">
-					<div class="container">
+					<div class="u-container">
 						<div class="Banner__content">
-							<h1>Sua notinha é o que alimenta o sonho das crianças da APACN.</h1>
-              <a href="#/" class="Button--pink js-scroll">doe sua nota fiscal</a>
+							<h1>Sua notinha é<br class="break"> o que alimenta<br class="break">o sonho das crianças<br class="break">da APACN.</h1>
+              <a href="#Como" class="Button--pink js-scroll js-enviarNota">doe sua nota fiscal</a>
 						</div> <!-- Banner-content -->
 					</div> <!-- container -->
 				</div>  <!-- Banner__item -->
 
 				<div class="Banner__item--right" style="background-image: url(assets/img/banner2.jpg);">
-					<div class="container">
+					<div class="u-container">
 						<div class="Banner__content">
-							<h1>Multiplique a esperança das nossas crianças.<br>Leve sua urna.</h1>
-              <a href="#/" class="Button--blue js-scroll">cadastre sua empresa</a>
+							<h1>Multiplique a<br class="break"> esperança das<br class="break"> nossas crianças.<br>Leve sua urna.</h1>
+              <a href="#Como" class="Button--blue js-scroll js-cadastrarEmpresa">cadastre sua empresa</a>
 						</div> <!-- Banner-content -->
 					</div> <!-- container -->
 				</div>  <!-- Banner__item -->
@@ -71,52 +75,158 @@
 				</div>  <!-- Banner__item -->
 			</section> <!-- Banner -->
 
-      <section class="Como">
-        <div class="container">
+      <section class="Como" id="Como">
+				<img src="assets/img/shape.svg" alt="" class="Como__shape">
+				<img src="assets/img/shape.svg" alt="" class="Como__shape">
+				<img src="assets/img/shape2.svg" alt="" class="Como__shape">
+        <div class="u-container">
           <h2>COMO FUNCIONA A NOTA DA ESPERANÇA?</h2>
 
 					<p>
-						A APACN participa do módulo solidário do Nota Paraná. Para ajudar, basta não pedir CPF na nota e depositá-la nas urnas que serão espalhadas nos estabelecimentos, <a href="#/" class="js-scroll">mandar uma foto para nós por aqui</a> ou pelo nosso WhatsApp. 
+						A APACN participa do módulo solidário do Nota Paraná. Para ajudar, basta não pedir CPF na nota e depositá-la nas urnas que serão espalhadas nos estabelecimentos, <a href="#Como" class="js-scroll js-enviarNota">mandar uma foto para nós por aqui</a> ou pelo nosso WhatsApp. 
 					</p>
 					<p>
 						O benefício doado não custa praticamente nada e ainda ajuda a APACN a continuar apoiando as crianças que estão em tratamento contra o câncer e ampliando a criação de projetos em prol delas.
 					</p>
 					<p>
-						Se você possui uma empresa, também pode ser um multiplicador de esperança. <a href="#/" class="js-scroll">Cadastre sua empresa aqui </a> para receber uma urna no seu estabelecimento acompanhado de peças de divulgação da campanha. Nós mesmos recolhemos as notinhas. :D
+						Se você possui uma empresa, também pode ser um multiplicador de esperança. <a href="#Como" class="js-scroll js-cadastrarEmpresa">Cadastre sua empresa aqui </a> para receber uma urna no seu estabelecimento acompanhado de peças de divulgação da campanha. Nós mesmos recolhemos as notinhas. :D
 					</p>
 					
-					<div class="Box">
-						<div class="Box__tag">
-							<img src="assets/img/icons/building.svg" alt="Pessoa Jurídica">
-						</div> <!-- Box__tag -->
+					<div class="Como__container">
+						<div class="Box">
+							<div class="Box__tag">
+								<img src="assets/img/icons/building.svg" alt="Pessoa Jurídica">
+							</div> <!-- Box__tag -->
 
-						<h3>CADASTRE-SE PARA RECEBER A URNA DA ESPERANÇA.</h3>
+							<h3>CADASTRE-SE PARA RECEBER A URNA DA ESPERANÇA.</h3>
 
-						<p>
-							Sua empresa pode ajudar a APACN recolhendo notas fiscais de quem não quer o CPF na nota. É fácil e faz toda a diferença. <b>Cadastre-se e participe.</b>
-						</p>
+							<p>
+								Sua empresa pode ajudar a APACN recolhendo notas fiscais de quem não quer o CPF na nota. É fácil e faz toda a diferença. <b>Cadastre-se e participe.</b>
+							</p>
 
-						<button class="Button--pink" data-modal="urna">quero receber meu kit</button>
-					</div> <!-- Box -->
+							<button class="Button--pink js-openModal" data-modal="kit">quero receber meu kit</button>
+						</div> <!-- Box -->
 
-					<div class="Box">
-						<div class="Box__tag">
-							<img src="assets/img/icons/client.svg" alt="Pessoa Física">
-						</div> <!-- Box__tag -->
+						<div class="Box">
+							<div class="Box__tag">
+								<img src="assets/img/icons/client.svg" alt="Pessoa Física">
+							</div> <!-- Box__tag -->
 
-						<h3>DOE SUA NOTA FISCAL<br>PARA A APACN.</h3>
+							<h3>DOE SUA NOTA FISCAL<br>PARA A APACN.</h3>
 
-						<p>
-							Realizou alguma compra e não solicitou o CPF na nota? Doe ela para a APACN e ajude as nossas crianças.<b>Envie a foto da notinha e participe.</b>
-						</p>
+							<p>
+								Realizou alguma compra e não solicitou o CPF na nota? Doe ela para a APACN e ajude as nossas crianças.<b>Envie a foto da notinha e participe.</b>
+							</p>
 
-						<button class="Button--pink" data-modal="doe">QUERO DOAR MINHA NOTA</button>
-					</div> <!-- Box -->
+							<button class="Button--pink js-openModal" data-modal="nota">QUERO DOAR MINHA NOTA</button>
+						</div> <!-- Box -->
+
+						<div class="Como__modal" data-modal="nota">
+							<div class="Como__modalContainer">
+								<div class="Como__tag">
+									<img src="assets/img/icons/client.svg" alt="Pessoa Física">
+								</div>
+								<p>Realizou alguma compra e não solicitou o CPF na nota? Doe ela para a APACN abaixo.</p>
+
+								<button class="Button--gray js-closeModal">cancelar</button>
+								<a href="https://api.whatsapp.com/send?phone=5541999999999" class="Button--green">enviar por WhatsApp</a>
+								<button class="Button--pink" id="uploadPhoto">anexar foto</button>
+
+								<input type="file" id="fileSelect" accept="image/*">
+							</div>
+						</div> <!-- Como__modal -->
+
+						<div class="Como__modal" data-modal="kit">
+							<div class="Como__tag">
+								<img src="assets/img/icons/building.svg" alt="Pessoa Jurídica">
+							</div>
+							<div class="Como__modalContainer">
+								<p>Quando preencher o cadastro abaixo, enviaremos um e-mail informando os materiais básicos do enxoval da campanha que iremos enviar.</p>
+
+								<form action="" class="Form">
+									<div class="col-xs-12">
+										<div class="Form__group">
+											<label for="razao">Razão Social</label>
+											<input type="text" class="Form__control" placeholder="e.g. empresa um ltda." name="razao">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-xs-12">
+										<div class="Form__group">
+											<label for="nomeFantasia">Nome Fantasia</label>
+											<input type="text" class="Form__control" placeholder="e.g. empresa um" name="nomeFantasia">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-xs-12">
+										<div class="Form__group">
+											<label for="cnpj">CNPJ</label>
+											<input type="text" class="Form__control" placeholder="e.g. 12.345.678/1234-56" name="cnpj">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-2">
+										<div class="Form__group">
+											<label for="cep">CEP</label>
+											<input type="text" class="Form__control" placeholder="99999-999" name="cep">
+										</div> <!-- Form__control -->
+									</div> <!-- col-md-3 -->
+
+									<div class="col-md-2">
+										<div class="Form__group">
+											<label for="uf">UF</label>
+											<input type="text" class="Form__control" placeholder="UF" name="uf">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-4">
+										<div class="Form__group">
+											<label for="cidade">Cidade</label>
+											<input type="text" class="Form__control" placeholder="Cidade" name="cidade">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-4">
+										<div class="Form__group">
+											<label for="bairro">Bairro</label>
+											<input type="text" class="Form__control" placeholder="Bairro" name="bairro">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-xs-12">
+										<div class="Form__group">
+											<label for="endereco">Endereço</label>
+											<input type="text" class="Form__control" placeholder="e.g. rua nome da rua, 123" name="endereco">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-6">
+										<div class="Form__group">
+											<label for="email">E-mail</label>
+											<input type="email" class="Form__control" placeholder="e.g. emaildecadastro@email.com.br" name="email">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-6">
+										<div class="Form__group">
+											<label for="telefone">Telefone</label>
+											<input type="tel" class="Form__control" placeholder="e.g. (41) 99999-1762" name="telefone">
+										</div> <!-- Form__control -->
+									</div>
+
+									<div class="col-md-offset-6 col-md-6">
+										<button class="Button--gray js-closeModal" type="button">cancelar</button>
+										<button class="Button--pink" type="submit">cadastrar</button>
+									</div>
+								</form>
+							</div> <!-- Como__modalContainer -->
+						</div>
+					</div> <!-- Como__container -->
         </div> <!-- container -->
       </section> <!-- Como -->
 
-			<section class="Info">
-				<div class="container">
+			<section class="Info" id="Ranking">
+				<div class="u-container">
 					<div class="Total">
 						<div class="Total__number">
 							201773
@@ -127,7 +237,7 @@
 						</span> <!-- Total__title -->
 
 						<small class="Total__money">
-							APROXIMADAMENTE R$ 1.234.567,00
+							APROXIMADAMENTE <span>R$ 1.234.567,00</span>
 						</small>
 					</div> <!-- Total -->
 
@@ -151,71 +261,106 @@
 								<tr>
 									<td>#3</td>
 									<td>mercearia do joão</td>
-									<td>2.017</td>
+									<td>2.017 notas</td>
 								</tr>
 								<tr>
 									<td>#4</td>
 									<td>material de construção M&L</td>
-									<td>1.200</td>
+									<td>1.200 notas</td>
 								</tr>
 								<tr>
 									<td>#5</td>
 									<td>Panificadora pão & cia.</td>
 									<td>800 notas</td>
 								</tr>
+
+								<tr class="is-hidden">
+									<td>#6</td>
+									<td>Panificadora pão & cia.</td>
+									<td>800 notas</td>
+								</tr>
+								<tr class="is-hidden">
+									<td>#7</td>
+									<td>Panificadora pão & cia.</td>
+									<td>800 notas</td>
+								</tr>
+								<tr class="is-hidden">
+									<td>#8</td>
+									<td>Panificadora pão & cia.</td>
+									<td>800 notas</td>
+								</tr>
+								<tr class="is-hidden">
+									<td>#9</td>
+									<td>Panificadora pão & cia.</td>
+									<td>800 notas</td>
+								</tr>
+								<tr class="is-hidden">
+									<td>#10</td>
+									<td>Panificadora pão & cia.</td>
+									<td>800 notas</td>
+								</tr>
+
 							</tbody>
 						</table>
 
-						<a href="#/">ver tabela completa</a>
+						<a href="#/" class="Ranking__link">ver tabela completa</a>
 					</div> <!-- Ranking -->
 				</div> <!-- container -->
 			</section> <!-- Info -->
 
-			<section class="Download">
-				<div class="container">
+			<section class="Download" id="Downloads">
+				<div class="u-container">
 					<h2>Downloads</h2>
 
-					<p>Faça download de outros materiais para auxiliar na divulgação da Nota da Esperança.</p>
-					<ul>
-						<li><a href="#/">adesivo 80x30mm</a></li>
-						<li><a href="#/">wallpaper 1920x1080px</a><a href="#/">1440x1080</a></li>
-						<li><a href="#/">flyer 10x15mm</a></li>
-						<li><a href="#/">cartaz a3 297x420mm</a></li>
-						<li><a href="#/">móbile 100x100cm</a></li>
-					</ul>
+					<div class="Download__column">
+							<p>Faça download de outros materiais para auxiliar na divulgação da Nota da Esperança.</p>
+						<ul>
+							<li><a href="#/">adesivo 80x30mm</a></li>
+							<li><a href="#/">wallpaper 1920x1080px</a> | <a href="#/">1440x1080</a></li>
+							<li><a href="#/">flyer 10x15mm</a></li>
+							<li><a href="#/">cartaz a3 297x420mm</a></li>
+							<li><a href="#/">móbile 100x100cm</a></li>
+						</ul>
+					</div>
+
+					<div class="Download__column">
+						<img src="assets/img/mockups.png" alt="" class="Download__img">
+					</div>
 				</div>
 			</section> <!-- Download-->
 
 		</div> <!-- PageContent -->
 
-		<footer class="SiteFooter">
-			<div class="container">
+		<footer class="SiteFooter" id="Contato">
+			<div class="u-container">
 				<div class="SiteFooter__column">
-					<a href="#/"><img src="assets/img/logo-apacn.svg" alt="APACN"></a>
+					<a href="#/" class="SiteFooter__logo"><img src="assets/img/logo-apacn.svg" alt="APACN"></a>
 				</div> <!-- SiteFooter__column -->
 
 				<div class="SiteFooter__column">
-					<h5>Associação Paranaense de Apoio à Criança com Neoplasia</h5>
-					<address>
-						<p>Casa de Apoio e Sede Administrativa</p>
-						<p>Rua Oscar Schrappe Sênior, 250 - Tarumã</p>
-						<p>CEP 82810-690 - Curitiba PR</p>
-						<p>Telefone: 41 3024 7475 | Fax: 41 3366 4244</p>
-						<p>Ouvidoria: <a href="mailto:ouvidoria_apacn@onda.com.br">ouvidoria_apacn@onda.com.br</a></p>
-						<p>
-							<a href="mailto:apacn@apacn.org.br">apacn@apacn.org.br</a>
-						</p>
-					</address>
+					<div>
+						<h5>Associação Paranaense de Apoio à Criança com Neoplasia</h5>
+						<address>
+							<p>Casa de Apoio e Sede Administrativa</p>
+							<p>Rua Oscar Schrappe Sênior, 250 - Tarumã</p>
+							<p>CEP 82810-690 - Curitiba PR</p>
+							<p>Telefone: 41 3024 7475 | Fax: 41 3366 4244</p>
+							<p>Ouvidoria: <a href="mailto:ouvidoria_apacn@onda.com.br">ouvidoria_apacn@onda.com.br</a></p>
+							<p>
+								<a href="mailto:apacn@apacn.org.br">apacn@apacn.org.br</a>
+							</p>
+						</address>
+					</div>
 				</div> <!-- SiteFooter__column -->
 
 				<div class="SiteFooter__column">
 					<ul>
-						<li><a href="#/">sobre a apacn</a></li>
-						<li><a href="#/">áreas de atuação</a></li>
-						<li><a href="#/">câncer infanto-juvenil</a></li>
-						<li><a href="#/">quero ajudar</a></li>
-						<li><a href="#/">fale conosco</a></li>
-						<li><a href="#/">facebook</a></li>
+						<li><a href="http://apacnpr.ning.com/page/sobre-a-apacn" target="_blank">sobre a apacn</a></li>
+						<li><a href="http://apacnpr.ning.com/page/areas-de-atuacao-1" target="_blank">áreas de atuação</a></li>
+						<li><a href="http://apacnpr.ning.com/page/cancer-infantojuvenil-1" target="_blank">câncer infanto-juvenil</a></li>
+						<li><a href="http://apacnpr.ning.com/page/quero-ajudar" target="_blank">quero ajudar</a></li>
+						<li><a href="http://apacnpr.ning.com/page/fale-conosco" target="_blank">fale conosco</a></li>
+						<li><a href="https://www.facebook.com/APACNParana/?fref=ts" target="_blank">facebook</a></li>
 					</ul>
 				</div> <!-- SiteFooter__column -->
 			</div> <!-- container -->
