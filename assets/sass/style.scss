@@ -1,6 +1,7 @@
 @import 'mixins';
 @import 'colors';
 @import 'fonts';
+@import 'form';
 @import 'header';
 
 img{
@@ -14,9 +15,13 @@ html, body {
 
 body{
   font-family: $m;
+
+  &.overflow{
+    overflow: hidden;
+  }
 }
 
-.container{
+.u-container{
 	margin: 0 auto;
 	padding: 0 15px;
   position: relative;
@@ -58,6 +63,8 @@ body{
 }
 
 .Button{
+  @include transition(all .4s ease);
+
   border-radius: 30px;
   border: 0;
   color: white;
@@ -68,18 +75,51 @@ body{
   line-height: 50px;
   padding: 0 35px;
   position: relative;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 
+  &::before{
+    @include transition(all .4s ease);
+
+    border-radius: 50px;
+    content: "";
+    display: block;
+    height: calc(100% + 20px);
+    left: -2%;
+    opacity: 0;
+    position: absolute;
+    top: -10px;
+    width: 104%;
+  }
+
   &::after{
+    @include transition(all .4s ease);
     @include center(x);
     border-radius: 30px;
-    bottom: 0;
+    bottom: 5px;
     content: "";
     display: block;
     height: 30px;
     position: absolute;
     width: 80%;
+  }
+
+  &:hover{
+    cursor: pointer;
+
+    &::before{
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }    
+  }
+
+  &:focus{
+    color: darken(white, 12%);
+    outline: none;
   }
 
   @include MQ(M){
@@ -89,9 +129,13 @@ body{
   &--pink{
     @extend .Button;
     background-color: $razzmatazz;
+
+    &::before{
+      border: 2px solid rgba($razzmatazz, .7);
+    }
     
     &::after{
-      box-shadow: 0 5px 30px 0 rgba($razzmatazz, .5);
+      box-shadow: 0 5px 30px 5px rgba($razzmatazz, .5);
     }
   }
 
@@ -99,8 +143,38 @@ body{
     @extend .Button;
     background-color: $tiber;
 
+    &::before{
+      border: 2px solid rgba($tiber, .7);
+    }
+
     &::after{
-      box-shadow: 0 5px 30px 0 rgba($tiber, .5);
+      box-shadow: 0 5px 30px 5px rgba($tiber, .5);
+    }
+  }
+
+  &--green{
+    @extend .Button;
+    background-color: $mantis;
+
+    &::before{
+      border: 2px solid rgba($mantis, .7);
+    }
+
+    &::after{
+      box-shadow: 0 5px 30px 5px rgba($mantis, .5);
+    }
+  }
+
+  &--gray{
+    @extend .Button;
+
+    background-color: white;
+    border: 1px solid $silver;
+    color: $silver;
+    font-weight: 300;
+
+    &::before{
+      border: 1px solid rgba($silver, .7);
     }
   }
 }
@@ -121,21 +195,46 @@ body{
     height: 100%;
     position: relative;
 
-    .container{
+    .u-container{
       height: 100%;
     }
 
     &--left,
     &--right{
       @extend .Banner__item;
+
+      @include MQ(M){
+        .Banner__content{
+          @include center(y);
+          
+          position: absolute;
+          width: 50%;
+        }
+      }
     }
 
     &--right{
       background-position: left top;
+
+      @include MQ(M){
+        .Banner__content{
+          right: inherit;
+          left: 5%;
+          text-align: left;
+        }
+      }
     }
 
     &--left{
       background-position: right top;
+
+      @include MQ(M){
+        .Banner__content{
+          left: inherit;
+          right: 5%;
+          text-align: right;
+        }
+      }
     }
   }
 
@@ -220,24 +319,127 @@ p{
 
 .Como{
   @include clearfix;
-  background-color: $viking;
+  background-color: $malibu;
   padding: 35px 0 55px;
+  position: relative;
+
+  &__shape{
+    position: absolute;
+
+    &:nth-child(1){
+      @include transform(rotate(-200deg));
+      left: 2%;
+      top: 55px;
+      max-height: 220px;
+    }
+
+    &:nth-child(2){
+      @include transform(rotate(23deg));
+      bottom: 25%;
+      max-height: 240px;
+      right: 5%;
+    }
+
+    &:nth-child(3){
+      display: none;
+
+      @include MQ(M){
+        @include transform(rotate(14deg));
+        max-width: 270px;
+        right: -135px;
+        top: -10%;
+      }
+    }
+  }
+
+  &__container{
+    @include clearfix;
+    margin: 30px 0;
+    position: relative;
+  }
+
+  &__modal{
+    @include transform(translateY(-50px));
+    @include transition(all .3s ease);
+
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 20px 20px -20px rgba(black, .5);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    overflow: auto;
+    padding: 45px 0 50px;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+
+    @include MQ(M){
+      height: auto;
+      position: absolute;
+    }
+
+    &.is-open{
+      @include transform(translateY(0));
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    p{
+      margin-bottom: 45px;
+
+      @include MQ(M){
+        margin-bottom: 70px;
+      }
+    }
+
+    &[data-modal="nota"]{
+      .Button{
+        margin: 15px 0;
+        width: 100%;
+
+        @include MQ(M){
+          width: auto;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+
+  &__modalContainer{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  &__tag{
+    @extend .Box__tag;
+  }
+
+  #fileSelect{
+    display: none;
+  }
+  
 }
 
 .Box{
   background: white;
   border-radius: 10px;
-  margin: 0 0 30px;
   padding: 20px 20px 40px;
+  margin-bottom: 30px;
   position: relative;
 
-  @include MQ(M){
+  @include MQ(S){
     display: inline-block;
+    margin-bottom: 0;
     float: left;
     padding: 55px;
     width: calc(50% - 15px);
 
-    &:last-child{
+    &:nth-child(2){
       margin-left: 30px;
     }
   }
@@ -256,8 +458,8 @@ p{
   }
 
   &__tag{
-    background: url(../img/tag.png) no-repeat 0 0;
     background-size: contain;
+    background: url(../img/tag.png) no-repeat 0 0;
     height: 65px;
     position: absolute;
     right: 10px;
@@ -278,5 +480,366 @@ p{
 
   .Button{
     width: 100%;
+
+    @include MQ(S){
+      display: block;
+      margin: 0 auto;
+      width: auto;
+    }
   }
+}
+
+
+.Info{
+  background-color: $tiber;
+  padding: 25px 0 30px;
+
+
+}
+
+.Total{
+  text-align: center;
+  
+  &__number{
+    color: white;
+    font-weight: bold;
+    padding-top: 40px;
+    font-size: 58px;
+    position: relative;
+    line-height: 1;
+
+    &::before{
+      background: url(../img/icons/paper.svg) no-repeat 0 0;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 26px;
+      position: absolute;
+      width: 26px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: -5px;
+    }
+
+    @include MQ(M){
+      font-size: 133px;
+
+      &::before{
+        top: 5px;
+      }
+    }
+  }
+
+  &__title{
+    color: white;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+
+    @include MQ(M){
+      margin-top: 0;
+      font-size: 30px;
+    }
+  }
+
+  &__money{
+    color: $razzmatazz;
+    font-weight: 300;
+    font-size: 14px;
+    display: block;
+    line-height: 1;
+    position: relative;
+    padding-bottom: 30px;
+
+    &::after{
+      background-color: currentColor;
+      bottom: 0;
+      content: "";
+      display: block;
+      height: 1px;
+      left: 0;
+      margin: 0 auto;
+      max-width: 250px;
+      position: absolute;
+      right: 0;
+      width: 70%;
+    }
+
+    span{
+      font-weight: bold;
+    }
+
+    @include MQ(M){
+      font-size: 18px;
+    }
+  }
+}
+
+.Ranking{
+  &__title{
+    color: $malibu;
+    font-size: 16px;
+    text-align: center;
+
+    @include MQ(M){
+      font-size: 18px;
+    }
+  }
+
+  &__table{
+    margin: 0 auto;
+    color: $malibu;
+    text-transform: uppercase;
+
+    @include MQ(S){
+      width: 80%;
+    }
+
+    td{
+      font-size: 14px;
+
+      @include MQ(M){
+        font-size: 18px;
+      }
+
+      &:nth-child(2){
+        font-weight: bold;
+        font-size: 16px;
+
+        @include MQ(M){
+          font-size: 24px;
+        }
+      }
+
+      &:nth-child(3){
+        text-align: right;
+      }
+    }
+
+    tr{
+      &.is-hidden{
+        display: none;
+      }
+    }
+
+    @include MQ(S){
+      tr{
+        &:nth-child(1){
+          td{
+            &:first-child{
+              position: relative;
+
+              &::before{
+                background: url(../img/icons/medal.svg) no-repeat 0 0;
+                background-size: contain;
+                content: "";
+                display: inline-block;
+                height: 25px;
+                left: -25px;
+                position: absolute;
+                top: -4px;
+                width: 17px;
+
+                @include MQ(M){
+                  top: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__link{
+    color: $malibu;
+    margin: 15px 0 0;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.Download{
+  padding: 40px 0 35px;
+
+  p{
+    max-width: 450px;
+  }
+
+  ul{
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li{
+    padding-left: 30px;
+    position: relative;
+
+    &::before{
+      @include center(y);
+      background-color: $viking;
+      border-radius: 50%;
+      content: "";
+      display: inline-block;
+      height: 6px;
+      position: absolute;
+      left: 0;
+      width: 6px;
+    }
+  }
+
+  a{
+    @include transition(all .3s ease);
+
+    color: $tiber;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+
+    &:hover{
+      color: $razzmatazz;
+
+      &::after{
+        background: currentColor;
+        bottom: -2px;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+      }
+    }
+    
+    @include MQ(M){
+      font-size: 24px;
+    }
+  }
+
+  &__img{
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  @include MQ(S){
+    .Download__column{
+      display: inline-block;
+      float: left;
+
+      &:nth-child(2){
+        width: 60%;
+      }
+
+      &:nth-child(3){
+        width: 40%;
+      }
+    }
+  }
+}
+
+
+.SiteFooter{
+  background-color: $viking;
+  padding: 35px 0;
+
+  @include MQ(M){
+   > .u-container{
+      display: table;
+      width: 100%;
+   }
+  }
+  
+  &__logo{
+    display: block;
+    margin: 0 auto;
+    width: 110px;
+  }
+
+  &__column{
+    margin: 45px 0;
+
+    @include MQ(M){
+      display: table-cell;
+      margin: 0;
+      vertical-align: top;
+
+      &:nth-child(2){
+        > div{
+          max-width: 420px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  h5{
+    color: white;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  address{
+    font-style: normal;
+
+    p{
+      color: white;
+      line-height: 1.4;
+      margin: 0;
+      font-size: 14px;
+
+      &:first-child{
+        font-weight: 500;
+      }
+
+      > a{
+        color: white;
+        font-weight: normal;
+
+        &::after{
+          display: none;
+        }
+
+        &::before{
+          background-color: white;
+        }
+      }
+    }
+  }
+
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li{
+    a{
+      @include transition(color .15s linear);
+
+      color: white;
+      display: block;
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 26px;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover{
+        color: $tiber;
+      }
+    }
+  }  
 }

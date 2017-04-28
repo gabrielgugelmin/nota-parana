@@ -18,7 +18,21 @@
     width: 80px;
 
     @include MQ(M){
-      @include center;
+      @include center(x);
+      top: 8px;
+      width: 126px;
+    }
+  }
+
+  &__apacn{
+    display: none;
+
+    @include MQ(M){
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 10px;
+      width: 52px;
     }
   }
 }
@@ -60,7 +74,7 @@
   }
 
   a{
-    border-bottom: 1px solid $tiber;
+    border-bottom: 1px solid #107180;
     color: white;
     display: block;
     font-size: 14px;
@@ -68,6 +82,27 @@
     padding: 10px;
     text-decoration: none;
     text-transform: uppercase;
+  }
+
+  @include MQ(M){
+    @include transform(none);
+    background: $viking;
+    height: auto;
+    left: inherit;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 232px;
+
+    ul{
+      @include transform(none);
+      border-top: 1px solid #84cff4;
+      left: 0;
+      margin: 0;
+      max-width: 100%;
+      padding: 0 40px;
+      position: relative;
+    }
   }
 
 }
@@ -83,6 +118,10 @@
   top: 30px;
   width: 56px;
   z-index: 3;
+
+  @include MQ(M){
+    top: 32px;
+  }
 
 	span{
 		@include center;
